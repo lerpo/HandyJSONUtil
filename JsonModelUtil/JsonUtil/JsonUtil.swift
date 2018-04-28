@@ -1,0 +1,79 @@
+//
+//  JsonUtil.swift
+//  JsonModelUtil
+//
+//  Created by iqusong on 2018/4/28.
+//  Copyright © 2018年 iqusong. All rights reserved.
+//
+
+import UIKit
+import HandyJSON
+class JsonUtil: NSObject {
+    
+    /**
+     *  Json转对象
+     */
+    static func jsonToModel(_ jsonStr:String) ->BaseModel {
+        if jsonStr == "" || jsonStr.count == 0 {
+            #if DEBUG
+                print("jsonoModel:字符串为空")
+            #endif
+            return BaseModel()
+        }
+        return JSONDeserializer.deserializeFrom(json: jsonStr)!
+        //return BaseModel.deserialize(from: jsonStr)!
+    }
+    
+    /**
+     *  Json转数组对象
+     */
+    static func jsonToModelArray(_ jsonStr:String) ->[BaseModel] {
+        if jsonStr == "" || jsonStr.count == 0 {
+            #if DEBUG
+                print("jsonToModelArray:字符串为空")
+            #endif
+            return []
+        }
+        return [BaseModel].deserialize(from: jsonStr)! as! [BaseModel]
+    }
+    
+    /**
+     *  字典转对象
+     */
+    static func dictionaryToModel(_ dictionStr:[String:Any]) -> BaseModel {
+        if dictionStr.count == 0 {
+            #if DEBUG
+                print("dictionaryToModel:字符串为空")
+            #endif
+            return BaseModel()
+        }
+        return BaseModel.deserialize(from: dictionStr)!
+    }
+    
+    /**
+     *  对象转JSON
+     */
+    static func modelToJson(_ model:BaseModel?) -> String {
+        if model == nil {
+            #if DEBUG
+                print("modelToJson:model为空")
+            #endif
+             return ""
+        }
+        return (model?.toJSONString())!
+    }
+    
+    /**
+     *  对象转字典
+     */
+    static func modelToDictionary(_ model:BaseModel?) -> [String:Any] {
+        if model == nil {
+            #if DEBUG
+                print("modelToJson:model为空")
+            #endif
+            return [:]
+        }
+        return (model?.toJSON())!
+    }
+    
+}

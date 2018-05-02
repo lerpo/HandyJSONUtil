@@ -17,6 +17,9 @@
 		282CD49520944C09005C06C5 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282CD49420944C09005C06C5 /* BaseModel.swift */; };
 		282CD49C2094553B005C06C5 /* JsonToModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282CD49B2094553B005C06C5 /* JsonToModel.swift */; };
 		282CD49E209479C1005C06C5 /* JsonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282CD49D209479C1005C06C5 /* JsonUtil.swift */; };
+		28FE364E20996F5300FE82A2 /* JsonArrayToModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FE364D20996F5300FE82A2 /* JsonArrayToModel.swift */; };
+		28FE365020999AFA00FE82A2 /* CombineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FE364F20999AFA00FE82A2 /* CombineModel.swift */; };
+		28FE365220999DFB00FE82A2 /* SpacialTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FE365120999DFB00FE82A2 /* SpacialTypeModel.swift */; };
 		8F2E5299A586465554758986 /* Pods_JsonModelUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FCF070E996D6FDFDED8842 /* Pods_JsonModelUtil.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +57,9 @@
 		282CD49420944C09005C06C5 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		282CD49B2094553B005C06C5 /* JsonToModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonToModel.swift; sourceTree = "<group>"; };
 		282CD49D209479C1005C06C5 /* JsonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonUtil.swift; sourceTree = "<group>"; };
+		28FE364D20996F5300FE82A2 /* JsonArrayToModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonArrayToModel.swift; sourceTree = "<group>"; };
+		28FE364F20999AFA00FE82A2 /* CombineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineModel.swift; sourceTree = "<group>"; };
+		28FE365120999DFB00FE82A2 /* SpacialTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacialTypeModel.swift; sourceTree = "<group>"; };
 		414578A3CF7C13838BAF00D6 /* Pods-JsonModelUtil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsonModelUtil.release.xcconfig"; path = "Pods/Target Support Files/Pods-JsonModelUtil/Pods-JsonModelUtil.release.xcconfig"; sourceTree = "<group>"; };
 		A4F631278A8D07BA1AF6065B /* Pods-JsonModelUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JsonModelUtil.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JsonModelUtil/Pods-JsonModelUtil.debug.xcconfig"; sourceTree = "<group>"; };
 		C3FCF070E996D6FDFDED8842 /* Pods_JsonModelUtil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JsonModelUtil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				282CD49B2094553B005C06C5 /* JsonToModel.swift */,
+				28FE364D20996F5300FE82A2 /* JsonArrayToModel.swift */,
+				28FE364F20999AFA00FE82A2 /* CombineModel.swift */,
+				28FE365120999DFB00FE82A2 /* SpacialTypeModel.swift */,
 			);
 			path = demo;
 			sourceTree = "<group>";
@@ -365,8 +374,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28FE364E20996F5300FE82A2 /* JsonArrayToModel.swift in Sources */,
+				28FE365220999DFB00FE82A2 /* SpacialTypeModel.swift in Sources */,
 				282CD49520944C09005C06C5 /* BaseModel.swift in Sources */,
 				282CD46820944A16005C06C5 /* ViewController.swift in Sources */,
+				28FE365020999AFA00FE82A2 /* CombineModel.swift in Sources */,
 				282CD49C2094553B005C06C5 /* JsonToModel.swift in Sources */,
 				282CD46620944A16005C06C5 /* AppDelegate.swift in Sources */,
 				282CD49E209479C1005C06C5 /* JsonUtil.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 
 class JsonToModel: BaseModel {
-    var id :Int?
-    var color:String?
-    var name:String?
+    var id :Int = 0
+    var color:String=""
+    var name:String=""
 }

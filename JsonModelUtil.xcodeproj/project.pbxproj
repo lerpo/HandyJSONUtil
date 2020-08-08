@@ -195,7 +195,6 @@
 				282CD45F20944A16005C06C5 /* Frameworks */,
 				282CD46020944A16005C06C5 /* Resources */,
 				95974D9935741690E7EBB188 /* [CP] Embed Pods Frameworks */,
-				477BF29837550590D7339C8E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -316,21 +315,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		477BF29837550590D7339C8E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JsonModelUtil/Pods-JsonModelUtil-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6637D9D3B36C0C514A68FCBE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -355,7 +339,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JsonModelUtil/Pods-JsonModelUtil-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-JsonModelUtil/Pods-JsonModelUtil-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -364,7 +348,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JsonModelUtil/Pods-JsonModelUtil-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JsonModelUtil/Pods-JsonModelUtil-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

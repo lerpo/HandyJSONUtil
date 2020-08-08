@@ -9,6 +9,6 @@
 import UIKit
 
 class JsonArrayToModel: BaseModel {
-    var name:String?
-    var id :String?
+    var name:String=""
+    var id :String=""
 }

@@ -2,15 +2,14 @@
 //  ViewController.swift
 //  JsonModelUtil
 //
-//  Created by iqusong on 2018/4/28.
-//  Copyright © 2018年 iqusong. All rights reserved.
+//  Created by xml on 2018/4/28.
+//  Copyright © 2018年 xml. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
 
-   
     override func viewDidLoad() {
         super.viewDidLoad()
 //        jsonTomodel()
@@ -19,16 +18,20 @@ class ViewController: UIViewController {
 //        modelToJson()
 //        modelTodiction()
 //        jsonTocombilModel()
-          jsonToSpecialModel()
+        jsonToSpecialModel()
     }
     
     //json转model
     fileprivate func jsonTomodel(){
         let jsonString = "{\"id\":12345,\"color\":\"black\",\"name\":\"cat\"}"
-        let model:JsonToModel = JsonUtil.jsonToModel(jsonString,JsonToModel.self) as! JsonToModel
-        print(model.name as Any)
-        print(model.color as Any)
-        print(model.id as Any)
+        if let model:JsonToModel = JsonUtil.jsonToModel(jsonString,JsonToModel.self) as? JsonToModel {
+            print(model.name)
+            print(model.color)
+            print(model.id)
+        } else {
+            print("解析失败")
+        }
+       
     }
     
     //json数组转模型
@@ -36,7 +39,7 @@ class ViewController: UIViewController {
         let jsonArrayString: String = "[{\"name\":\"Bob\",\"id\":\"1\"}, {\"name\":\"Lily\",\"id\":\"2\"}, {\"name\":\"Lucy\",\"id\":\"3\"}]"
         let cats = JsonUtil.jsonArrayToModel(jsonArrayString, JsonArrayToModel.self) as! [JsonArrayToModel]
         for model:JsonArrayToModel  in cats {
-            print(model.name as Any)
+            print(model.name)
         }
     }
     
@@ -46,10 +49,14 @@ class ViewController: UIViewController {
         dict["id"] = 1.1
         dict["color"] = "hello"
         dict["name"] = "李四"
-        let model:JsonToModel = JsonUtil.dictionaryToModel(dict,JsonToModel.self) as! JsonToModel
-        print(model.name as Any)
-        print(model.color as Any)
-        print(model.id as Any)
+        if let model:JsonToModel = JsonUtil.dictionaryToModel(dict,JsonToModel.self) as? JsonToModel {
+            print(model.name)
+            print(model.color)
+            print(model.id)
+        } else {
+            print("转换失败")
+        }
+        
     }
     
     //模型转json
@@ -68,8 +75,13 @@ class ViewController: UIViewController {
         model.color = "red"
         model.id    = 100
         model.name  = "李四"
-        let modelTostring = JsonUtil.modelToDictionary(model)
-        print(modelTostring["name"] as Any)
+        let modelTostring:[String:Any] = JsonUtil.modelToDictionary(model)
+        if let str = modelTostring["name"] as? String {
+            print(str)
+        } else {
+            print("error")
+        }
+        
         
     }
     
@@ -115,8 +127,12 @@ class ViewController: UIViewController {
         // it prints:
         // {"date":"2017-09-11","decimal":"1.23423414371298437124391243","url":"https:\/\/www.aliyun.com","data":"aGVsbG8sIHdvcmxkIQ==","color":"0000FF"}
         
-        let mappedObject:SpacialTypeModel = JsonUtil.jsonToModel(specailModelString, SpacialTypeModel.self) as! SpacialTypeModel
-        print(mappedObject.date as Any)
+        if let mappedObject:SpacialTypeModel = JsonUtil.jsonToModel(specailModelString, SpacialTypeModel.self) as? SpacialTypeModel {
+             print(mappedObject.date!)
+        } else {
+            print("转换失败")
+        }
+       
     }
     
 

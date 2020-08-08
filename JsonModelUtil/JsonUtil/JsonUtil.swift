@@ -2,8 +2,8 @@
 //  JsonUtil.swift
 //  JsonModelUtil
 //
-//  Created by iqusong on 2018/4/28.
-//  Copyright © 2018年 iqusong. All rights reserved.
+//  Created by xml on 2018/4/28.
+//  Copyright © 2018年 xml. All rights reserved.
 //
 
 import UIKit
@@ -13,14 +13,19 @@ class JsonUtil: NSObject {
     /**
      *  Json转对象
      */
-    static func jsonToModel(_ jsonStr:String,_ modelType:HandyJSON.Type) ->BaseModel {
+    static func jsonToModel(_ jsonStr:String,_ modelType:HandyJSON.Type) -> HandyJSON {
         if jsonStr == "" || jsonStr.count == 0 {
             #if DEBUG
                 print("jsonoModel:字符串为空")
             #endif
             return BaseModel()
         }
-        return modelType.deserialize(from: jsonStr)  as! BaseModel
+        if let model = modelType.deserialize(from: jsonStr) as? BaseModel {
+            return model
+        } else {
+            return modelType.init()
+        }
+       
         
     }
     
@@ -35,10 +40,15 @@ class JsonUtil: NSObject {
             return []
         }
         var modelArray:[BaseModel] = []
-        let data = jsonArrayStr.data(using: String.Encoding.utf8)
-        let peoplesArray = try! JSONSerialization.jsonObject(with:data!, options: JSONSerialization.ReadingOptions()) as? [AnyObject]
-        for people in peoplesArray! {
-            modelArray.append(dictionaryToModel(people as! [String : Any], modelType))
+        let datas = jsonArrayStr.data(using: String.Encoding.utf8)
+        let dataArray:[[String : Any]] = try! JSONSerialization.jsonObject(with:datas!, options: JSONSerialization.ReadingOptions()) as! [[String : Any]]
+        for data:[String : Any] in dataArray {
+            if let model = dictionaryToModel(data, modelType) as? BaseModel {
+               modelArray.append(model)
+            } else {
+                modelArray.append(modelType.init() as! BaseModel)
+            }
+            
         }
         return modelArray
         
@@ -47,14 +57,18 @@ class JsonUtil: NSObject {
     /**
      *  字典转对象
      */
-    static func dictionaryToModel(_ dictionStr:[String:Any],_ modelType:HandyJSON.Type) -> BaseModel {
+    static func dictionaryToModel(_ dictionStr:[String:Any],_ modelType:HandyJSON.Type) -> HandyJSON {
         if dictionStr.count == 0 {
             #if DEBUG
                 print("dictionaryToModel:字符串为空")
             #endif
             return BaseModel()
         }
-        return modelType.deserialize(from: dictionStr) as! BaseModel
+        if let model =  modelType.deserialize(from: dictionStr) as? BaseModel {
+            return model
+        } else {
+            return modelType.init()
+        }
     }
     
     /**

@@ -2,8 +2,8 @@
 //  CombineModel.swift
 //  JsonModelUtil
 //
-//  Created by iqusong on 2018/5/2.
-//  Copyright © 2018年 iqusong. All rights reserved.
+//  Created by xml on 2018/5/2.
+//  Copyright © 2018年 xml. All rights reserved.
 //
 
 import UIKit

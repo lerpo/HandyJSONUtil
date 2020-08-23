@@ -5,7 +5,6 @@
 //  Created by xml on 2018/4/28.
 //  Copyright © 2018年 xml. All rights reserved.
 //
-
 import UIKit
 import HandyJSON
 class JsonUtil: NSObject {
@@ -41,7 +40,12 @@ class JsonUtil: NSObject {
         }
         var modelArray:[BaseModel] = []
         let datas = jsonArrayStr.data(using: String.Encoding.utf8)
-        let dataArray:[[String : Any]] = try! JSONSerialization.jsonObject(with:datas!, options: JSONSerialization.ReadingOptions()) as! [[String : Any]]
+        var dataArray:[[String : Any]] = []
+        if let array:[[String : Any]] = try? JSONSerialization.jsonObject(with:datas!, options: JSONSerialization.ReadingOptions()) as? [[String : Any]] {
+            dataArray = array
+        } else {
+            return modelArray
+        }
         for data:[String : Any] in dataArray {
             if let model = dictionaryToModel(data, modelType) as? BaseModel {
                modelArray.append(model)
